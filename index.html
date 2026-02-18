@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Roadmap Forge | Architect Your Future</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#050b14',
+                        navyLight: '#0f1c2e',
+                        gold: '#C5A059',
+                        silver: '#E2E8F0',
+                        glass: 'rgba(15, 28, 46, 0.75)'
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Styles for specific animations and utilities -->
+    <style>
+        body {
+            background-color: #050b14;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glass-panel {
+            background: rgba(15, 28, 46, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .line-clamp {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="selection:bg-gold selection:text-navy">
+
+    <!-- 3D Background Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-8 md:px-12 flex justify-between items-center" id="navbar">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 border border-gold rotate-45 flex items-center justify-center">
+                <div class="w-3 h-3 bg-gold"></div>
+            </div>
+            <span class="font-serif font-bold text-xl tracking-widest text-white ml-3">AI ROADMAP FORGE</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm tracking-widest uppercase font-semibold text-silver/70">
+            <a href="#philosophy" class="hover:text-gold transition-colors">Philosophy</a>
+            <a href="#features" class="hover:text-gold transition-colors">Capabilities</a>
+            <a href="#evolution" class="hover:text-gold transition-colors">Evolution</a>
+        </div>
+        <button class="px-6 py-2 border border-gold/50 text-gold hover:bg-gold hover:text-navy transition-all duration-300 font-sans text-sm tracking-wide uppercase">
+            Access Beta
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-6 md:px-24 pt-20 relative">
+            <div class="max-w-4xl relative">
+                <div class="overflow-hidden mb-2">
+                    <p class="hero-subtitle text-gold font-sans tracking-[0.3em] text-sm uppercase translate-y-full opacity-0">
+                        Architect Your Destiny
+                    </p>
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-6">
+                    <span class="block overflow-hidden"><span class="hero-line block translate-y-full">From Abstract</span></span>
+                    <span class="block overflow-hidden"><span class="hero-line block translate-y-full">To <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white text-glow">Actionable.</span></span></span>
+                </h1>
+                <div class="max-w-xl overflow-hidden">
+                    <p class="hero-desc text-silver/80 text-lg md:text-xl font-light leading-relaxed translate-y-full opacity-0">
+                        Harness the cognitive power of Gemini to transform vague aspirations into structured, dynamic strategic maps. Navigate your future with precision.
+                    </p>
+                </div>
+                <div class="mt-12 flex gap-6 hero-btns opacity-0 translate-y-4">
+                    <button class="group relative px-8 py-4 bg-gold text-navy font-bold tracking-wider uppercase overflow-hidden">
+                        <span class="relative z-10 group-hover:text-white transition-colors duration-300">Start Forging</span>
+                        <div class="absolute inset-0 bg-navy transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+                    </button>
+                    <button class="px-8 py-4 border border-silver/30 text-white font-bold tracking-wider uppercase hover:border-gold hover:text-gold transition-colors duration-300">
+                        View Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-pulse">
+                <span class="text-[10px] tracking-widest uppercase">Scroll to Explore</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Philosophy / Intro -->
+        <section id="philosophy" class="py-24 md:py-32 px-6 md:px-24 relative">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <!-- Abstract UI representation -->
+                    <div class="glass-panel p-8 rounded-sm relative transform transition-transform duration-700 hover:scale-[1.02]" id="ui-card-1">
+                        <div class="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+                            <span class="text-gold text-xs tracking-widest uppercase">Input Analysis</span>
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-4 font-mono text-xs text-silver/60">
+                            <div class="w-full bg-navyLight p-3 border-l-2 border-gold">
+                                > Goal: "Launch Tech Startup"<br>
+                                > Context: "Bootstrapped, Solo Founder"
+                            </div>
+                            <div class="flex items-center gap-2 text-gold">
+                                <span class="animate-pulse">●</span> Processing Gemini Inference...
+                            </div>
+                            <div class="space-y-2">
+                                <div class="h-1 bg-white/10 w-3/4 rounded overflow-hidden">
+                                    <div class="h-full bg-gold w-0 animate-load"></div>
+                                </div>
+                                <div class="h-1 bg-white/10 w-1/2 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -z-10 -top-10 -left-10 w-40 h-40 border border-gold/20 rounded-full"></div>
+                    <div class="absolute -z-10 bottom-10 -right-10 w-20 h-20 border border-gold/20 rotate-45"></div>
+                </div>
+                
+                <div class="order-1 md:order-2">
+                    <h2 class="font-serif text-3xl md:text-5xl text-white mb-6 reveal-text">Intelligent Architecture</h2>
+                    <p class="text-silver/70 leading-relaxed mb-8 reveal-text">
+                        Traditional planning fails because it lacks context. AI Roadmap Forge establishes a new standard by combining powerful Large Language Model reasoning with sophisticated data visualization.
+                    </p>
+                    <p class="text-silver/70 leading-relaxed reveal-text">
+                        We don't just list tasks; we decompose complexity. Our engine anticipates bottlenecks, suggests adaptive scenarios, and gamifies your progression through a high-fidelity visual interface.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="py-24 px-6 md:px-24 bg-gradient-to-b from-transparent to-navyLight/50">
+            <div class="text-center mb-20">
+                <span class="text-gold text-xs tracking-[0.3em] uppercase block mb-4">System Capabilities</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white">The Forge Engine</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-panel p-8 hover:border-gold/40 transition-colors duration-500 group feature-card opacity-0 translate-y-8">
+                    <div class="mb-6 text-gold text-4xl opacity-80 group-hover:scale-110 transition-transform duration-500">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Goal Decomposition</h3>
+                    <p class="text-sm text-silver/60 leading-relaxed">
+                        Leveraging Gemini's deep reasoning, vague objectives are broken down into granular, actionable milestones with estimated timelines and resource requirements.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-panel p-8 hover:border-gold/40 transition-colors duration-500 group feature-card opacity-0 translate-y-8">
+                    <div class="mb-6 text-gold text-4xl opacity-80 group-hover:scale-110 transition-transform duration-500">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Adaptive Scenarios</h3>
+                    <p class="text-sm text-silver/60 leading-relaxed">
+                        Life is non-linear. The platform dynamically adjusts your roadmap based on real-time feedback, offering "Best Case" and "Recovery" pathing options instantly.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-panel p-8 hover:border-gold/40 transition-colors duration-500 group feature-card opacity-0 translate-y-8">
+                    <div class="mb-6 text-gold text-4xl opacity-80 group-hover:scale-110 transition-transform duration-500">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 15l-2 5l9-9l-9 9l2-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Gamified Mastery</h3>
+                    <p class="text-sm text-silver/60 leading-relaxed">
+                        Transform productivity into pursuit. Experience goal progression through a visual XP system, unlocking insights as you complete strategic nodes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Roadmap Timeline -->
+        <section id="evolution" class="py-24 px-6 md:px-24 relative overflow-hidden">
+            <div class="mb-16">
+                <span class="text-gold text-xs tracking-[0.3em] uppercase block mb-4">Platform Trajectory</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white">System Evolution</h2>
+            </div>
+
+            <div class="relative border-l border-gold/30 ml-4 md:ml-12 space-y-16">
+                
+                <!-- Phase 1 -->
+                <div class="relative pl-12 md:pl-24 roadmap-item">
+                    <div class="absolute -left-[5px] top-2 w-[9px] h-[9px] bg-gold rounded-full shadow-[0_0_10px_#C5A059]"></div>
+                    <div class="absolute -left-[1px] top-2 w-8 md:w-16 h-[1px] bg-gold/50"></div>
+                    
+                    <div class="glass-panel p-6 md:p-8 max-w-2xl transform transition-all hover:translate-x-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Phase 1: Foundation</h3>
+                            <span class="text-xs font-mono text-gold border border-gold/30 px-2 py-1 rounded">CURRENT STATUS</span>
+                        </div>
+                        <ul class="space-y-3 text-silver/70 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold mt-1">▹</span>
+                                <span>Core Gemini Integration for linguistic reasoning.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold mt-1">▹</span>
+                                <span>Dynamic Goal-Based Mapping (MVP Release).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold mt-1">▹</span>
+                                <span>Basic Editorial Infographic Generation.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="relative pl-12 md:pl-24 roadmap-item opacity-50">
+                    <div class="absolute -left-[5px] top-2 w-[9px] h-[9px] bg-navy border border-gold/50 rounded-full"></div>
+                    <div class="absolute -left-[1px] top-2 w-8 md:w-16 h-[1px] bg-gold/30"></div>
+                    
+                    <div class="glass-panel p-6 md:p-8 max-w-2xl transform transition-all hover:translate-x-2 border-white/5">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Phase 2: Adaptation</h3>
+                            <span class="text-xs font-mono text-silver/40 border border-silver/20 px-2 py-1 rounded">IN DEVELOPMENT</span>
+                        </div>
+                        <ul class="space-y-3 text-silver/70 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold/50 mt-1">▹</span>
+                                <span>Adaptive Scenario Analysis Engine.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold/50 mt-1">▹</span>
+                                <span>Gamified Progression Framework implementation.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative pl-12 md:pl-24 roadmap-item opacity-30">
+                    <div class="absolute -left-[5px] top-2 w-[9px] h-[9px] bg-navy border border-white/20 rounded-full"></div>
+                    <div class="absolute -left-[1px] top-2 w-8 md:w-16 h-[1px] bg-white/10"></div>
+                    
+                    <div class="glass-panel p-6 md:p-8 max-w-2xl transform transition-all border-white/5">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Phase 3: Ubiquity</h3>
+                            <span class="text-xs font-mono text-silver/40 border border-silver/20 px-2 py-1 rounded">FUTURE</span>
+                        </div>
+                        <ul class="space-y-3 text-silver/70 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold/30 mt-1">▹</span>
+                                <span>Cross-Platform Ecosystem Deployment.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-gold/30 mt-1">▹</span>
+                                <span>Advanced AI-Driven Insight Generation & Forecasting.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 px-6 flex flex-col items-center justify-center text-center relative">
+            <div class="absolute inset-0 bg-gold/5 blur-[100px] rounded-full transform scale-50"></div>
+            <h2 class="font-serif text-4xl md:text-6xl text-white mb-8 relative z-10">Ready to Map the Unknown?</h2>
+            <p class="text-silver/60 max-w-xl mb-10 relative z-10">
+                Join the exclusive cohort of pioneers using AI Roadmap Forge to structure their ambition.
+            </p>
+            <button class="px-10 py-5 bg-gold text-navy font-bold text-lg tracking-widest uppercase hover:bg-white hover:text-navy transition-all duration-300 shadow-[0_0_30px_rgba(197,160,89,0.4)] relative z-10">
+                Begin Transformation
+            </button>
+            
+            <footer class="absolute bottom-4 text-xs text-silver/20 font-mono">
+                AI ROADMAP FORGE © 2024. ALL SYSTEMS NOMINAL.
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // --------------------------------------------------------
+        // THREE.JS CINEMATIC BACKGROUND
+        // --------------------------------------------------------
+        const initThreeJS = () => {
+            const container = document.getElementById('canvas-container');
+            
+            // Scene Setup
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x050b14, 0.002);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 50;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Particles (Nodes)
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 700;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 150; // Spread
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            // Custom Texture for particles (simple circle via canvas)
+            const getTexture = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 32;
+                canvas.height = 32;
+                const ctx = canvas.getContext('2d');
+                const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+                grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+                grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, 32, 32);
+                const texture = new THREE.Texture(canvas);
+                texture.needsUpdate = true;
+                return texture;
+            };
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.7,
+                map: getTexture(),
+                transparent: true,
+                color: 0xC5A059, // Gold
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // Lines connecting nearby particles
+            const linesMaterial = new THREE.LineBasicMaterial({
+                color: 0x475569, // Slate color
+                transparent: true,
+                opacity: 0.15
+            });
+
+            // We create a line geometry that we will update every frame
+            // For performance, we limit connections, but for this prototype, let's create a static geometric mesh 
+            // that rotates, plus the particles.
+            
+            // Create a geometric grid/network structure
+            const geometryNetwork = new THREE.IcosahedronGeometry(30, 1);
+            const wireframe = new THREE.WireframeGeometry(geometryNetwork);
+            const lineMesh = new THREE.LineSegments(wireframe);
+            lineMesh.material.color.setHex(0x1e293b);
+            lineMesh.material.transparent = true;
+            lineMesh.material.opacity = 0.08;
+            scene.add(lineMesh);
+
+            // Mouse Interaction
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (event) => {
+                mouseX = event.clientX / window.innerWidth - 0.5;
+                mouseY = event.clientY / window.innerHeight - 0.5;
+            });
+
+            // Animation Loop
+            const clock = new THREE.Clock();
+
+            const animate = () => {
+                const elapsedTime = clock.getElapsedTime();
+
+                // Rotate particles
+                particlesMesh.rotation.y = elapsedTime * 0.05;
+                particlesMesh.rotation.x = elapsedTime * 0.02;
+
+                // Rotate Network
+                lineMesh.rotation.y = elapsedTime * 0.03;
+                lineMesh.rotation.x = -elapsedTime * 0.03;
+
+                // Parallax based on mouse
+                camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
+
+                renderer.render(scene, camera);
+                window.requestAnimationFrame(animate);
+            };
+
+            animate();
+
+            // Resize Handler
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            return { scene, camera, particlesMesh, lineMesh };
+        };
+
+        const threeObj = initThreeJS();
+
+        // --------------------------------------------------------
+        // GSAP ANIMATIONS
+        // --------------------------------------------------------
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Sequence
+        const tl = gsap.timeline();
+
+        tl.to('.hero-subtitle', {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            delay: 0.5
+        })
+        .to('.hero-line', {
+            y: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power4.out"
+        }, "-=0.5")
+        .to('.hero-desc', {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out"
+        }, "-=0.8")
+        .to('.hero-btns', {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out"
+        }, "-=0.6");
+
+        // Camera Scroll Effect
+        // Move camera Z as we scroll down to simulate flying through the stars
+        ScrollTrigger.create({
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1,
+            onUpdate: (self) => {
+                // Zoom in
+                threeObj.camera.position.z = 50 - (self.progress * 40);
+                // Rotate meshes faster on scroll
+                threeObj.particlesMesh.rotation.z = self.progress * Math.PI * 0.5;
+                threeObj.lineMesh.rotation.z = -self.progress * Math.PI * 0.5;
+            }
+        });
+
+        // Philosophy / Intro Reveal
+        const splitText = document.querySelectorAll('.reveal-text');
+        splitText.forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // Features Stagger
+        gsap.to('.feature-card', {
+            scrollTrigger: {
+                trigger: '#features',
+                start: "top 70%",
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Roadmap Timeline Animation
+        const items = document.querySelectorAll('.roadmap-item');
+        items.forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%",
+                },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                onComplete: () => {
+                    if (index > 0) { // Slightly increase opacity for inactive items on scroll
+                         gsap.to(item, {opacity: 1 - (index * 0.3), duration: 0.5});
+                    }
+                }
+            });
+        });
+
+        // Navbar bg change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-navy/90', 'backdrop-blur-md', 'border-b', 'border-white/5');
+            } else {
+                nav.classList.remove('bg-navy/90', 'backdrop-blur-md', 'border-b', 'border-white/5');
+            }
+        });
+
+        // Fake Load Animation for UI Card
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes load {
+                0% { width: 0; }
+                50% { width: 60%; }
+                100% { width: 100%; }
+            }
+            .animate-load {
+                animation: load 2s infinite ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+</html>
